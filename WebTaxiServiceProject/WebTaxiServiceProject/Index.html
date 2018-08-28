@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Horor Taxi</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: "Open Sans", sans-serif
+        }
+
+        body {
+            background-image: url("hororTaxi.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">$(document).ready(function() {
+
+            $("#LogIn").click(function () {
+
+                let v = document.getElementById("usernameLI");
+                let v1 = document.getElementById("passLI");
+                if (!v.checkValidity() && !v1.checkValidity()){
+                    alert("Unesite korisničko ime i lozinku!");
+                } else if (!v.checkValidity()) {
+                    alert("Unesite korisničko ime!");
+
+                }
+                else if (!v1.checkValidity()) {
+                    alert("Unesite lozinku!");
+                }
+                else {
+                    let korisnik = {
+                        KorisnickoIme: `${$('#usernameLI').val()}`,
+                        Lozinka: `${$('#passLI').val()}`
+
+                    };
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/LogIn',
+                        data: JSON.stringify(korisnik),
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data) {
+
+                                localStorage.setItem("ulogovani", korisnik.KorisnickoIme);
+                                $(location).attr('href', 'Korisnik.html');
+                            }
+                            else {
+                                alert("Korisnicko ime ili lozinka je pogresna!");
+                            }
+                        },
+                        error: function (errorData) {
+
+                        }
+
+
+                    })
+                }
+            });
+
+            $("#registracija").click(function () {
+
+                let v = document.getElementById("korisnickoime");
+                let v1 = document.getElementById("lozinka");
+                let v2 = document.getElementById("ime1");
+                let v3 = document.getElementById("prezime1");
+                let v5 = document.getElementById("jmbg1");
+                let v6 = document.getElementById("kontakt1");
+                let v7 = document.getElementById("email1");
+                if (!v.checkValidity() && !v1.checkValidity() && !v2.checkValidity() && !v3.checkValidity() && !v5.checkValidity() && !v6.checkValidity() && !v7.checkValidity()) {
+                    alert("Popunite polja za registraciju!");
+                } else if (!v.checkValidity() || !v1.checkValidity() || !v2.checkValidity() || !v3.checkValidity() || !v5.checkValidity() || !v6.checkValidity() || !v7.checkValidity()) {
+                    let greska = "Niste dobro uneli:\n";
+                    if (!v.checkValidity()) {
+                        greska += "-Korisničko ime\n";
+                    }
+                    if (!v1.checkValidity()) {
+                        greska += "-Lozinku\n";
+                    }
+                    if (!v2.checkValidity()) {
+                        greska += "-Ime\n";
+                    }
+                    if (!v3.checkValidity()) {
+                        greska += "-Prezime\n";
+                    }
+
+                    if (!v5.checkValidity()) {
+                        greska += "-JMBG\n";
+                    }
+                    if (!v6.checkValidity()) {
+                        greska += "-Kontakt\n";
+                    }
+                    if (!v7.checkValidity()) {
+                        greska += "-Email\n";
+                    }
+                    alert(greska);
+                }
+                else {
+                    let jmbg = `${$('#jmbg1').val()}`;
+                    let danRodjenja = jmbg.substring(0, 2);
+                    let mesecRodjenja = jmbg.substring(2, 4);
+                    let godinaRodjenja = jmbg.substring(4, 7);
+                    danRodjenja = parseInt(danRodjenja);
+                    mesecRodjenja = parseInt(mesecRodjenja);
+                    godinaRodjenja = parseInt(godinaRodjenja);
+                    if (danRodjenja <= 0 || danRodjenja > 31 || mesecRodjenja <= 0 || mesecRodjenja > 12 || (godinaRodjenja > 18 && godinaRodjenja < 900)) {
+                        alert("JMBG je neispravan!");
+                    } else {
+
+                        let korisnik = {
+                            KorisnickoIme: `${$('#korisnickoime').val()}`,
+                            Lozinka: `${$('#lozinka').val()}`,
+                            Ime: `${$('#ime1').val()}`,
+                            Prezime: `${$('#prezime1').val()}`,
+                            Pol: `${$('#pol').val()}`,
+                            JMBG: `${$('#jmbg1').val()}`,
+                            Kontakt: `${$('#kontakt1').val()}`,
+                            Email: `${$('#email1').val()}`,
+
+                        };
+
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/api/Korisnik',
+                            data: JSON.stringify(korisnik),
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            success: function (data) {
+                                if (data) {
+                                    alert("Registrovani ste");
+                                    $(location).attr('href', 'Index.html');
+                                }
+                                else {
+                                    alert("Korisnicko ime je zauzeto!");
+                                }
+                            },
+                            error: function (errorData) {
+
+                            }
+                        })
+                    }
+                }
+
+            });
+
+
+        });</script>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-bar " style=" background-color:#4c4c4c">
+            <img class="w3-bar-item w3-left w3-small " src="logo.jpg" height="75" width="75" />
+            <div class="w3-bar-item w3-right w3-small ">
+
+                <table align="right">
+                    <tr>
+                        <td>
+                            <label for="usernameLI">Korisničko ime</label>
+                        </td>
+                        <td>
+                            <label for="passLI">Lozinka</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="KorisnickoIme" id="usernameLI" tabindex="1" required />
+                        </td>
+                        <td>
+                            <input type="password" name="Lozinka" id="passLI" tabindex="2" required />
+                        </td>
+                        <td>
+                            <label id="loginbutton" for="logIn">
+                                <button value="Log In" type="button" id="LogIn">Log In</button>
+
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="w3-container w3-content" style="max-width:1700px;margin-top:80px">
+        <div class="w3-row">
+
+            <!-- Right Column -->
+            <div class="w3-col m2 w3-right ">
+
+                <table align="right">
+                    <tr>
+                        <td colspan="2" align="center">
+                            Registracija
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="korisnickoime">Korisničko ime</label></td>
+                        <td><input type="text" name="KorisnickoIme" id="korisnickoime" pattern=".{4,}" minlength="4" maxlength="13" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lozinka">Lozinka</label></td>
+                        <td><input type="password" name="Lozinka" id="lozinka" pattern=".{4,}" minlength="4" maxlength="13" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Ime</label></td>
+                        <td><input type="text" name="Ime" id="ime1" minlength="2" maxlength="13" pattern="^[^0-9]+$" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Prezime</label> </td>
+                        <td><input type="text" name="Prezime" id="prezime1" minlength="2" maxlength="13" pattern="^[^0-9]+$" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pol">Pol</label></td>
+                        <td>
+                            <select name="Pol" id="pol">
+                                <option>Muški</option>
+                                <option>Ženski</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label>JMBG</label> </td>
+                        <td><input type="text" name="JMBG" id="jmbg1" pattern="[0-9]{13}" minlength="13" maxlength="13" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Kontakt</label></td>
+                        <td><input type="text" name="Kontakt" id="kontakt1" pattern="[0-9]{6,14}" minlength="6" maxlength="14" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Email</label></td>
+                        <td><input type="email" name="Email" id="email1" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required /></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><button id="registracija" type="button">Registruj se</button></td>
+                    </tr>
+                </table>
+
+                <!--</form> End Right Column -->
+            </div>
+            <!-- End Grid -->
+        </div>
+        <!-- End Page Container -->
+    </div>
+    <br>
+    <!--<footer class="w3-container w3-theme-l1 w3-bottom-align">
+        <p>Powered by Tanja Radojcic</p>
+    </footer> -->
+</body>
+</html>

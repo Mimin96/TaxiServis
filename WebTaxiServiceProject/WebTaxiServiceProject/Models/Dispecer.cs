@@ -10,7 +10,7 @@ namespace WebTaxiServiceProject.Models
     {
         public Dispecer() { }
 
-        public Dispecer(int id, string k, string l, string i, string p, Pol pol, string jmbg, string kontakt, string e, Uloga u, bool b)
+        public Dispecer(int id, string k, string l, string i, string p, Pol pol, string jmbg, string kontakt, string e, Uloga u)
         {
             Id = id;
             KorisnickoIme = k;
@@ -23,7 +23,6 @@ namespace WebTaxiServiceProject.Models
             Email = e;
             Uloga = u;
             Voznje = new List<Voznja>();
-            Blokiran = b;
         }
     }
 }
