@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebTaxiServiceProject.Models;
 
 namespace WebTaxiServiceProject
 {
@@ -18,6 +19,12 @@ namespace WebTaxiServiceProject
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Dispeceri dispeceri = new Dispeceri("~/App_Data/dispeceri.txt");
+            Korisnici korisnici = new Korisnici("~/App_Data/korisnici.txt");
+            Vozaci vozaci = new Vozaci("~/App_Data/vozaci.txt");
+            Voznje voznje = new Voznje("~/App_Data/voznje.txt");
+
         }
     }
 }

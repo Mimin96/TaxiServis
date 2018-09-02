@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Hosting;
+using WebTaxiServiceProject.Models;
 using static WebTaxiServiceProject.Models.Enums;
 
 namespace WebTaxiServiceProject.Models

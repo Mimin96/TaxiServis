@@ -1,7 +1,2 @@
-﻿0;mimin;mimin123;Miroslav;Tanasic;Muški;2612996772058;0631401955;tanas@gmail.com;Mušterija;False
-0;mimin;mimin123;m;m;Muški;2612996772058;0631401955;d@gmail.com;Mušterija;False
-0;mimin;mimin123;mimim;mimim;Muški;2612996772058;0634101995;dasdas@gmail.com;Mušterija;False
-0;mimin;mimin123;mim;mimimi;Muški;2612996772058;0634156541;mimin@gmail.com;Mušterija;False
-0;mimin;mimin123;mimim;mimimi;Muški;2612999677216;569684848;mimimi@gmail.com;Mušterija;False
-0;mimin;mimin123;mimmi;mimimim;Muški;2612996772058;264526848;mimim@gmail.com;Mušterija;False
-0;konj;konj123;mimi;mimimi;Muški;2612996772058;2628498468;dasds@gfsad.com;Mušterija;False
+0;Mimin;mimin123;Miroslav;Tanasic;Muški;2612996772058;0631401954;mile.tanasic@gmail.com;Mušterija;False
+1;mimin;mimin123;asuibdaus;iasdjbfisdb;Muški;2612996854615;063145616516;asdbasyd@gmail.com;Mušterija;False
