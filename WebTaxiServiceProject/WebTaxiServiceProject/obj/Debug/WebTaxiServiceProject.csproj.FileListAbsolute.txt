@@ -187,8 +187,8 @@ C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceP
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\Microsoft.AI.Web.xml
+C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csprojResolveAssemblyReference.cache
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csproj.CoreCompileInputs.cache
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csproj.CopyComplete
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.pdb
-C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csprojResolveAssemblyReference.cache

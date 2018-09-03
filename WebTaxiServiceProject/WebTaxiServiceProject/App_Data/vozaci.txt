@@ -1,1 +1,2 @@
-﻿
+0;Mimin;mimin123;Miroslav;Tanasic;Muški;2612996772058;0631401955;tanasic@gmail.com;Vozač;0;45.2545217495245;19.8320921586915;0;Novosadskog sajma 25;; Novi Sad;0;0;Mimin;2000;BG007CD;100;Putnički;True;False
+1;Djolo;djolo123;Djole;Tosic;Muški;2612996772058;0631401956;djole@gmail.com;Vozač;0;45.2453708171692;19.8369845079346;0;Lasla Gala 23;; Novi Sad 409848;0;0;Djolo;2002;SI007SI;99;Putnički;True;False
