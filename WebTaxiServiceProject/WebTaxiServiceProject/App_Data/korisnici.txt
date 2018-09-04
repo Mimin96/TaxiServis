@@ -1,1 +1,1 @@
-0;Mimin;mimin123;Miroslav;Tanasic;Muški;2612996772058;0631401955;mile.tanasic@gmail.com;Mušterija;False
+0;konj;mimin123;Miroslav;Tanasic;Muški;2612996772058;0631401955;mile.tanasic@gmail.com;Mušterija;False

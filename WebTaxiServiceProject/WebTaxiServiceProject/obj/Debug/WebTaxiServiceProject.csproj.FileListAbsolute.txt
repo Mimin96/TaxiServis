@@ -95,12 +95,6 @@ C:\Users\Mimin\source\repos\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debu
 C:\Users\Mimin\source\repos\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csproj.CopyComplete
 C:\Users\Mimin\source\repos\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.dll
 C:\Users\Mimin\source\repos\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.pdb
-C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\System.IO.Compression.dll
-C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\VBCSCompiler.exe
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\ApplicationInsights.config
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\WebTaxiServiceProject.dll.config
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\WebTaxiServiceProject.dll
@@ -112,9 +106,13 @@ C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceP
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\csi.exe.config
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\csi.rsp
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\Microsoft.Win32.Primitives.dll
@@ -124,6 +122,7 @@ C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceP
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\System.Diagnostics.Process.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\System.IO.Compression.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\System.IO.FileSystem.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\System.IO.FileSystem.Primitives.dll
@@ -146,6 +145,7 @@ C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceP
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\vbc.exe
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\vbc.exe.config
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\vbc.rsp
+C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\VBCSCompiler.exe
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\Antlr3.Runtime.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\Microsoft.AI.Agent.Intercept.dll
@@ -187,8 +187,8 @@ C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceP
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\bin\Microsoft.AI.Web.xml
-C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csprojResolveAssemblyReference.cache
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csproj.CoreCompileInputs.cache
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csproj.CopyComplete
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.dll
 C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.pdb
+C:\Users\Mimin\Documents\GitHub\TaxiServis\WebTaxiServiceProject\WebTaxiServiceProject\obj\Debug\WebTaxiServiceProject.csprojResolveAssemblyReference.cache
