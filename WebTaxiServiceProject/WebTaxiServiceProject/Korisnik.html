@@ -1782,6 +1782,112 @@
 
             });
 
+            $("#blokVD").click(function () {
+                $("#izmenaProfilaDivD").css("display", "none");
+                $("#pregledProfilaDivD").css("display", "none");
+                $("#dodajVozacaDivD").css("display", "none");
+                $("#dodajVoznjuDivD").css("display", "none");
+                $("#tabeleD").css("display", "none");
+                $("#mapa").css("display", "none");
+
+                $("#dodajKomentarD").css("display", "none");
+                $("#prikaziKomentarD").css("display", "none");
+                $("#pretragaD1").css("display", "none");
+                $("#pretragaD2").css("display", "none");
+                $("#pretragaD3").css("display", "none");
+
+                $("#obradaVoznjeD").css("display", "none");
+                $("#dodajVoznjuD").css("display", "none");
+                $("#blokDivD").css("display", "none");
+
+
+                $("#blokDivD").html("");
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Vozac',
+                    async: false,
+                    success: function (data) {
+
+                        let tabela = `<table class="w3-card w3-white"><tr><td colspan = "3">Lista Vozača</td></tr>`;
+
+                        for (vozac in data) {
+                            if (data[vozac].Blokiran == false) {
+                                tabela += `<tr><td>` + data[vozac].Ime + " " + data[vozac].Prezime + `</td>
+                                <td><button id="bVD${data[vozac].Id}" onclick="blokirajVozaca(${data[vozac].Id});" type="button">Blokiraj</button></td>
+                                <td><button id="obVD${data[vozac].Id}" onclick="odblokirajVozaca(${data[vozac].Id});" type="button" disabled>Odblokiraj</button></td>`;
+
+                            }
+                            else {
+                                tabela += `<tr><td>` + data[vozac].Ime + " " + data[vozac].Prezime + `</td>
+                                <td><button id="bVD${data[vozac].Id}" onclick="blokirajVozaca(${data[vozac].Id});" type="button" disabled>Blokiraj</button></td>
+                                <td><button id="obVD${data[vozac].Id}" onclick="odblokirajVozaca(${data[vozac].Id});" type="button" >Odblokiraj</button></td>`;
+
+                            }
+                        }
+
+                        $("#blokDivD").append(tabela);
+                    }
+                });
+
+
+                $("#blokDivD").css("display", "inline");
+
+            });
+
+            $("#blokKD").click(function () {
+                $("#izmenaProfilaDivD").css("display", "none");
+                $("#pregledProfilaDivD").css("display", "none");
+                $("#dodajVozacaDivD").css("display", "none");
+                $("#dodajVoznjuDivD").css("display", "none");
+                $("#tabeleD").css("display", "none");
+                $("#mapa").css("display", "none");
+
+                $("#dodajKomentarD").css("display", "none");
+                $("#prikaziKomentarD").css("display", "none");
+                $("#pretragaD1").css("display", "none");
+                $("#pretragaD2").css("display", "none");
+                $("#pretragaD3").css("display", "none");
+
+                $("#obradaVoznjeD").css("display", "none");
+                $("#dodajVoznjuD").css("display", "none");
+                $("#blokDivD").css("display", "none");
+
+
+                $("#blokDivD").html("");
+                $("#blokDivD").css("display", "inline");
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Korisnik',
+                    async: false,
+                    success: function (data) {
+
+                        let tabela = `<table class="w3-card w3-white "><tr><td colspan = "3">Lista Mušterija</td></tr>`;
+
+                        for (vozac in data) {
+                            if (data[vozac].Blokiran == false) {
+                                tabela += `<tr><td>` + data[vozac].Ime + " " + data[vozac].Prezime + `</td>
+                                <td><button id="bKD${data[vozac].Id}" onclick="blokirajKorisnika(${data[vozac].Id});" type="button">Blokiraj</button></td>
+                                <td><button id="obKD${data[vozac].Id}" onclick="odblokirajKorisnika(${data[vozac].Id});" type="button" disabled>Odblokiraj</button></td>`;
+
+                            }
+                            else {
+                                tabela += `<tr><td>` + data[vozac].Ime + " " + data[vozac].Prezime + `</td>
+                                <td><button id="bKD${data[vozac].Id}" onclick="blokirajKorisnika(${data[vozac].Id});" type="button" disabled>Blokiraj</button></td>
+                                <td><button id="obKD${data[vozac].Id}" onclick="odblokirajKorisnika(${data[vozac].Id});" type="button" >Odblokiraj</button></td>`;
+
+                            }
+                        }
+
+                        $("#blokDivD").append(tabela);
+                    }
+                });
+
+
+
+
+            });
+
             //Vozac
 
             $("#odjavaV").click(function () {
@@ -1997,6 +2103,335 @@
                         })
                     }
                 }
+            });
+
+            $("#refreshV1").click(function () {
+
+
+                $("#pretragaV1").css("display", "inline");
+                document.getElementById('cenaOdV1').value = '';
+                document.getElementById('cenaDoV1').value = '';
+                document.getElementById('ocenaPretragaOdV1').selectedIndex = 0;
+                document.getElementById('ocenaPretragaDoV1').selectedIndex = 0;
+                document.getElementById('statusPretragaV1').selectedIndex = 0;
+                document.getElementById('DatumOdV1').value = '';
+                document.getElementById('DatumDoV1').value = '';
+
+                $("#pretraziV1").click();
+            });
+
+            $("#refreshV2").click(function () {
+
+                document.getElementById('DatumOdV2').value = '';
+                document.getElementById('DatumDoV2').value = '';
+                $("#pretragaV2").css("display", "inline");
+                $("#pretraziV2").click();
+            });
+
+            $("#pretraziV1").click(function () {
+                $("#LondonV").html("");
+                $("#pretragaV2").css("display", "none");
+                let id = localStorage.getItem("ulogovaniId");
+
+                let e = document.getElementById('statusPretragaV1');
+                let selValue = e.options[e.selectedIndex].value;
+                let statusPretrage = selValue;
+
+                let datumOd = `${$('#DatumOdV1').val()}`;
+                if (datumOd == "") {
+                    var date = new Date("2018-01-01");
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    if (month < 10) month = '0' + month;
+                    if (day < 10) day = '0' + day;
+                    datumOd = date.getFullYear() + "-" + month + "-" + day;
+
+                }
+
+                let datumDo = `${$('#DatumDoV1').val()}`;
+                if (datumDo == "") {
+                    var date = new Date();
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    if (month < 10) month = '0' + month;
+                    if (day < 10) day = '0' + day;
+                    datumDo = date.getFullYear() + "-" + month + "-" + day;
+                }
+
+                let e1 = document.getElementById('ocenaPretragaOdV1');
+                let selValue1 = e1.options[e1.selectedIndex].value;
+                let ocenaOd = selValue1;
+
+                let e2 = document.getElementById('ocenaPretragaDoV1');
+                let selValue2 = e2.options[e2.selectedIndex].value;
+                let ocenaDo = selValue2;
+
+                let cenaOd = `${$('#cenaOdV1').val()}`;
+                if (cenaOd == "") {
+                    cenaOd = 0;
+                }
+
+                let cenaDo = `${$('#cenaDoV1').val()}`;
+                if (cenaDo == "") {
+                    cenaDo = 9999;
+                }
+
+                let e3 = document.getElementById('SortV1');
+                let selValue3 = e3.options[e3.selectedIndex].value;
+                let sort = selValue3;
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Vozac/' + id,
+                    async: false,
+                    success: function (data) {
+                        localStorage.setItem("ulogovaniStatus", data.Zauzet);
+                    }
+                })
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Voznja',
+                    async: false,
+                    success: function (data) {
+
+
+
+                        let ulogovani = localStorage.getItem("ulogovani");
+                        let tableOfProducts = "<table class=\"w3-border w3-centered w3-card w3-white\" cellpadding=\"7\" id=\"mojeV\"><tr><td>Datum</td><td>Početna lokacija</td><td>Odredište</td> <td colspan=\"2\">Dispečer</td> <td colspan=\"2\">Mušterija</td> <td>Iznos</td><td>Ocena</td> <td>Status</td> <td>Komentar</td><td></td></tr>";
+                        for (voznja in data) {
+                            if (data[voznja].Vozac == id) {
+
+                                var date = new Date(data[voznja].Datum);
+                                var month = date.getMonth() + 1;
+                                var day = date.getDate();
+                                var hours = date.getHours();
+                                var minutes = date.getMinutes();
+
+                                if (month < 10) month = '0' + month;
+                                if (day < 10) day = '0' + day;
+                                if (hours < 10) hours = '0' + hours;
+                                if (minutes < 10) minutes = '0' + minutes;
+
+                                var formatedDate = date.getFullYear() + "-" + month + "-" + day + " " + hours + ":" + minutes;
+                                var date2 = date.getFullYear() + "-" + month + "-" + day;
+
+                                let dispIme = "";
+                                let dispPrezime = "";
+
+                                if (data[voznja].Dispecer != -1) {
+                                    $.get("/api/Dispecer/" + data[voznja].Dispecer, function (disp, status) {
+                                        dispIme = disp.Ime;
+                                        dispPrezime = disp.Prezime;
+                                    });
+                                }
+                                let korIme = "";
+                                let korPrezime = "";
+
+                                if (data[voznja].Musterija != -1) {
+                                    $.get("/api/Korisnik/" + data[voznja].Musterija, function (kor, status) {
+                                        korIme = kor.Ime;
+                                        korPrezime = kor.Prezime;
+                                    });
+                                }
+
+
+                                if ((data[voznja].Status == statusPretrage || statusPretrage == -1) && (date2 >= datumOd && date2 <= datumDo) && (data[voznja].Iznos >= cenaOd && data[voznja].Iznos <= cenaDo) && (data[voznja].Komentar.Ocena >= ocenaOd && data[voznja].Komentar.Ocena <= ocenaDo)) {
+                                    tableOfProducts += `<tr><td>${formatedDate}</td><td>${data[voznja].PocetnaLokacija.Adresa.Ulica} <br/>  ${data[voznja].PocetnaLokacija.Adresa.Mesto}</td><td>${data[voznja].Odrediste.Adresa.Ulica} <br/>  ${data[voznja].Odrediste.Adresa.Mesto}</td><td>${korIme}</td><td>${korPrezime}</td><td>${dispIme}</td><td>${dispPrezime}</td><td>${data[voznja].Iznos}</td><td>${data[voznja].Komentar.Ocena}</td>`;
+
+
+                                    switch (data[voznja].Status) {
+                                        case 0:
+                                            tableOfProducts += `<td>Kreirana-Na čekanju</td>`;
+                                            tableOfProducts += `<td>Nema komentara</td>`;
+                                            break;
+                                        case 1:
+                                            tableOfProducts += `<td>Formirana</td>`;
+                                            tableOfProducts += `<td>Nema komentara</td>`;
+                                            tableOfProducts += `<td><button id="uspesna${data[voznja].Id}" type="button" onclick="uspesnaClickV(${data[voznja].Id});">Uspešna</button>`;
+                                            tableOfProducts += ` <button id="neuspesna${data[voznja].Id}" type="button" onclick="neuspesnaClickV(${data[voznja].Id});">Neuspešna</button></td>`;
+
+                                            break;
+                                        case 2:
+                                            tableOfProducts += `<td>Obrađena</td>`;
+                                            tableOfProducts += `<td>Nema komentara</td>`;
+                                            tableOfProducts += `<td><button id="uspesna${data[voznja].Id}" type="button" onclick="uspesnaClickV(${data[voznja].Id});">Uspešna</button>`;
+                                            tableOfProducts += ` <button id="neuspesna${data[voznja].Id}" type="button" onclick="neuspesnaClickV(${data[voznja].Id});">Neuspešna</button></td>`;
+
+                                            break;
+                                        case 3:
+                                            tableOfProducts += `<td>Prihvaćena</td>`;
+                                            tableOfProducts += `<td>Nema komentara</td>`;
+                                            tableOfProducts += `<td><button id="uspesna${data[voznja].Id}" type="button" onclick="uspesnaClickV(${data[voznja].Id});">Uspešna</button>`;
+                                            tableOfProducts += ` <button id="neuspesna${data[voznja].Id}" type="button" onclick="neuspesnaClickV(${data[voznja].Id});">Neuspešna</button></td>`;
+
+                                            break;
+                                        case 4:
+                                            tableOfProducts += `<td>Otkazana</td>`;
+                                            tableOfProducts += `<td><button id="vidiKomentar${data[voznja].Id}" type="button" onclick="vidiKomentarClickV(${data[voznja].Id});">Vidi komentar</button></td>`;
+
+                                            break;
+                                        case 5:
+                                            tableOfProducts += `<td>Uspešna</td>`;
+                                            if (data[voznja].Komentar.Korisnik == -1) {
+                                                tableOfProducts += `<td><button id="dodajKomentar${data[voznja].Id}" type="button" onclick="dodajKomentarClickV(${data[voznja].Id});">Dodaj komentar</button></td>`;
+
+                                            } else {
+                                                tableOfProducts += `<td><button id="vidiKomentar${data[voznja].Id}" type="button" onclick="vidiKomentarClickV(${data[voznja].Id});">Vidi komentar</button></td>`;
+
+                                            }
+                                            break;
+                                        case 6:
+                                            tableOfProducts += `<td>Neuspešna</td>`;
+                                            tableOfProducts += `<td><button id="vidiKomentar${data[voznja].Id}" type="button" onclick="vidiKomentarClickV(${data[voznja].Id});">Vidi komentar</button></td>`;
+
+                                            break;
+
+                                    }
+                                }
+
+                            }
+                        }
+                        tableOfProducts += "</table>";
+                        $("#LondonV").append(tableOfProducts);
+                    }
+                });
+
+
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById("LondonV").style.display = "block";
+                event.currentTarget.className += " active";
+
+            });
+
+            $("#pretraziV2").click(function () {
+                $("#TokyoV").html("");
+                $("#pretragaV1").css("display", "none");
+
+                let id = localStorage.getItem("ulogovaniId");
+
+
+                let datumOd = `${$('#DatumOdV2').val()}`;
+                if (datumOd == "") {
+                    var date = new Date("2018-01-01");
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    if (month < 10) month = '0' + month;
+                    if (day < 10) day = '0' + day;
+                    datumOd = date.getFullYear() + "-" + month + "-" + day;
+
+                }
+
+                let datumDo = `${$('#DatumDoV2').val()}`;
+                if (datumDo == "") {
+                    var date = new Date();
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    if (month < 10) month = '0' + month;
+                    if (day < 10) day = '0' + day;
+                    datumDo = date.getFullYear() + "-" + month + "-" + day;
+                }
+
+
+
+                let e3 = document.getElementById('SortV2');
+                let selValue3 = e3.options[e3.selectedIndex].value;
+                let sort = selValue3;
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Vozac/' + id,
+                    async: false,
+                    success: function (data) {
+                        localStorage.setItem("ulogovaniStatus", data.Zauzet);
+                    }
+                })
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Voznja',
+                    async: false,
+                    success: function (data) {
+
+                        let tip = localStorage.getItem("ulogovaniTip");
+                        let status2 = localStorage.getItem("ulogovaniStatus");
+                        let tableOfProducts = "<table class=\"w3-border w3-centered w3-card w3-white\" cellpadding=\"7\" id=\"kreiraneV\"><tr><td>Datum</td><td>Početna lokacija</td><td colspan=\"2\">Mušterija</td><td>Tip Automobila</td></tr>";
+                        for (voznja in data) {
+                            if (data[voznja].Status == 0 && (data[voznja].TipAutomobila == tip || data[voznja].TipAutomobila == 0)) {
+
+
+                                var date = new Date(data[voznja].Datum);
+                                var month = date.getMonth() + 1;
+                                var day = date.getDate();
+                                var hours = date.getHours();
+                                var minutes = date.getMinutes();
+
+                                if (month < 10) month = '0' + month;
+                                if (day < 10) day = '0' + day;
+                                if (hours < 10) hours = '0' + hours;
+                                if (minutes < 10) minutes = '0' + minutes;
+
+                                var formatedDate = date.getFullYear() + "-" + month + "-" + day + " " + hours + ":" + minutes;
+                                var date2 = date.getFullYear() + "-" + month + "-" + day;
+
+                                if (date2 >= datumOd && date2 <= datumDo) {
+                                    let korIme = "";
+                                    let korPrezime = "";
+
+                                    if (data[voznja].Musterija != -1) {
+                                        $.get("/api/Korisnik/" + data[voznja].Musterija, function (kor, status) {
+                                            korIme = kor.Ime;
+                                            korPrezime = kor.Prezime;
+                                        });
+                                    }
+
+                                    tableOfProducts += `<tr><td>${formatedDate}</td><td>${data[voznja].PocetnaLokacija.Adresa.Ulica} <br/>  ${data[voznja].PocetnaLokacija.Adresa.Mesto}</td><td>${korIme}</td><td>${korPrezime}</td>`;
+                                    if (data[voznja].TipAutomobila == 0) {
+                                        tableOfProducts += `<td>Svejedno</td>`;
+                                    } else if (data[voznja].TipAutomobila == 1) {
+                                        tableOfProducts += `<td>Putnički</td>`;
+                                    } else if (data[voznja].TipAutomobila == 2) {
+                                        tableOfProducts += `<td>Kombi</td>`;
+                                    }
+
+                                    if (status2 == "true") {
+                                        tableOfProducts += `<td><button id="preuzmi${data[voznja].Id}" type="button" onclick="preuzmiVoznjuClick(${data[voznja].Id});" disabled>Preuzmi Vožnju</button></td>`;
+
+                                    } else {
+                                        tableOfProducts += `<td><button id="preuzmi${data[voznja].Id}" type="button" onclick="preuzmiVoznjuClick(${data[voznja].Id});">Preuzmi Vožnju</button></td>`;
+
+                                    }
+
+                                }
+
+                            }
+                        }
+                        tableOfProducts += "</table>";
+                        $("#TokyoV").append(tableOfProducts);
+                    }
+                });
+
+
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById("TokyoV").style.display = "block";
+                event.currentTarget.className += " active";
+
             });
         });
 
@@ -3005,6 +3440,144 @@
             }
         }
 
+        function blokirajVozaca(id) {
+            let vozac = "";
+            $.ajax({
+                type: 'GET',
+                url: '/api/Vozac/' + id,
+                async: false,
+                success: function (v) {
+                    vozac = v;
+                }
+            })
+
+            vozac.Blokiran = true;
+
+            $.ajax({
+                type: 'PUT',
+                url: '/api/Vozac/' + id,
+                data: JSON.stringify(vozac),
+                headers: {
+                    "ulogovani": localStorage.getItem("ulogovani").toString
+                },
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    if (data) {
+                        alert("blokiran vozač " + vozac.Ime + " " + vozac.Prezime + "!");
+                        $(location).attr('href', 'Korisnik.html');
+                    } else {
+                        alert("Vozač nije blokiran!");
+                    }
+                },
+                error: function (errorData) {
+
+                }
+            })
+        }
+
+        function odblokirajVozaca(id) {
+            let vozac = "";
+            $.ajax({
+                type: 'GET',
+                url: '/api/Vozac/' + id,
+                async: false,
+                success: function (v) {
+                    vozac = v;
+                }
+            })
+
+            vozac.Blokiran = false;
+
+            $.ajax({
+                type: 'PUT',
+                url: '/api/Vozac/' + id,
+                data: JSON.stringify(vozac),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    if (data) {
+                        alert("odblokiran vozač " + vozac.Ime + " " + vozac.Prezime + "!");
+                        $(location).attr('href', 'Korisnik.html');
+                    }
+                    else {
+                        alert("Vozač nije odblokiran!");
+                    }
+                },
+                error: function (errorData) {
+
+                }
+            })
+        }
+
+        function blokirajKorisnika(id) {
+            let kor = "";
+            $.ajax({
+                type: 'GET',
+                url: '/api/Korisnik/' + id,
+                async: false,
+                success: function (v) {
+                    kor = v;
+                }
+            })
+
+            kor.Blokiran = true;
+
+            $.ajax({
+                type: 'PUT',
+                url: '/api/Korisnik/' + id,
+                data: JSON.stringify(kor),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    if (data) {
+                        alert("blokirana mušterija " + kor.Ime + " " + kor.Prezime + "!");
+                        $(location).attr('href', 'Korisnik.html');
+                    }
+                    else {
+                        alert("Mušterija nije blokirana!");
+                    }
+                },
+                error: function (errorData) {
+
+                }
+            })
+        }
+
+        function odblokirajKorisnika(id) {
+            let kor = "";
+            $.ajax({
+                type: 'GET',
+                url: '/api/Korisnik/' + id,
+                async: false,
+                success: function (v) {
+                    kor = v;
+                }
+            })
+
+            kor.Blokiran = false;
+
+            $.ajax({
+                type: 'PUT',
+                url: '/api/Korisnik/' + id,
+                data: JSON.stringify(kor),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    if (data) {
+                        alert("odblokirana mušterija " + kor.Ime + " " + kor.Prezime + "!");
+                        $(location).attr('href', 'Korisnik.html');
+                    }
+                    else {
+                        alert("Mušterija nije odblokirana!");
+                    }
+                },
+                error: function (errorData) {
+
+                }
+            })
+        }
+
         //Vozac
 
         function uspesnaClickV(id) {
@@ -3334,6 +3907,218 @@
                     }
                 })
 
+            }
+        }
+
+        function sortTableV1() {
+            var n = document.getElementById("SortV1").value;
+            if (n == 1) {
+                n = 8;
+            }
+            else if (n == 2) {
+                n = 12;
+            }
+
+            if (n == 12) {
+                let id = localStorage.getItem("ulogovaniId");
+                let x0 = 0;
+                let y0 = 0;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Vozac/' + id,
+                    async: false,
+                    success: function (v) {
+                        x0 = v.Lokacija.X;
+                        y0 = v.Lokacija.Y;
+                    }
+                })
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Voznja',
+                    async: false,
+                    success: function (data) {
+
+                        var table, rows, switching, i, x, y, shouldSwitch;
+                        table = document.getElementById("mojeV");
+                        switching = true;
+
+                        while (switching) {
+
+                            switching = false;
+                            rows = table.getElementsByTagName("TR");
+
+                            for (i = 1; i < (rows.length - 1); i++) {
+
+                                shouldSwitch = false;
+
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+
+                                let x1 = data[Number(x.innerHTML)].PocetnaLokacija.X;
+                                let y1 = data[Number(x.innerHTML)].PocetnaLokacija.Y;
+                                let x2 = data[Number(y.innerHTML)].PocetnaLokacija.X;
+                                let y2 = data[Number(y.innerHTML)].PocetnaLokacija.Y;
+
+                                let r1 = Math.sqrt(Math.pow((x0 - x1), 2) + Math.pow((y0 - y1), 2));
+                                let r2 = Math.sqrt(Math.pow((x0 - x2), 2) + Math.pow((y0 - y2), 2));
+
+
+                                if (r1 > r2) {
+
+                                    shouldSwitch = true;
+                                    break;
+                                }
+
+                            }
+                            if (shouldSwitch) {
+                                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                                switching = true;
+                            }
+                        }
+                    }
+                });
+            } else {
+                var table, rows, switching, i, x, y, shouldSwitch;
+                table = document.getElementById("mojeV");
+                switching = true;
+
+                while (switching) {
+
+                    switching = false;
+                    rows = table.getElementsByTagName("TR");
+
+                    for (i = 1; i < (rows.length - 1); i++) {
+
+                        shouldSwitch = false;
+
+                        x = rows[i].getElementsByTagName("TD")[n];
+                        y = rows[i + 1].getElementsByTagName("TD")[n];
+
+                        if (n == 8) {
+                            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else {
+                            if (new Date(x.innerHTML) < new Date(y.innerHTML)) {
+
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+        function sortTableV2() {
+            var n = document.getElementById("SortV2").value;
+            if (n == 2) {
+                n = 6;
+            }
+
+            if (n == 6) {
+                let id = localStorage.getItem("ulogovaniId");
+                let x0 = 0;
+                let y0 = 0;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Vozac/' + id,
+                    async: false,
+                    success: function (v) {
+                        x0 = v.Lokacija.X;
+                        y0 = v.Lokacija.Y;
+                    }
+                })
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Voznja',
+                    async: false,
+                    success: function (data) {
+
+                        var table, rows, switching, i, x, y, shouldSwitch;
+                        table = document.getElementById("kreiraneV");
+                        switching = true;
+
+                        while (switching) {
+
+                            switching = false;
+                            rows = table.getElementsByTagName("TR");
+
+                            for (i = 1; i < (rows.length - 1); i++) {
+
+                                shouldSwitch = false;
+
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+
+                                let x1 = data[Number(x.innerHTML)].PocetnaLokacija.X;
+                                let y1 = data[Number(x.innerHTML)].PocetnaLokacija.Y;
+                                let x2 = data[Number(y.innerHTML)].PocetnaLokacija.X;
+                                let y2 = data[Number(y.innerHTML)].PocetnaLokacija.Y;
+
+                                let r1 = Math.sqrt(Math.pow((x0 - x1), 2) + Math.pow((y0 - y1), 2));
+                                let r2 = Math.sqrt(Math.pow((x0 - x2), 2) + Math.pow((y0 - y2), 2));
+
+
+                                if (r1 > r2) {
+
+                                    shouldSwitch = true;
+                                    break;
+                                }
+
+                            }
+                            if (shouldSwitch) {
+                                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                                switching = true;
+                            }
+                        }
+                    }
+                });
+            } else {
+
+                var table, rows, switching, i, x, y, shouldSwitch;
+                table = document.getElementById("kreiraneV");
+                switching = true;
+
+                while (switching) {
+
+                    switching = false;
+                    rows = table.getElementsByTagName("TR");
+
+                    for (i = 1; i < (rows.length - 1); i++) {
+
+                        shouldSwitch = false;
+
+                        x = rows[i].getElementsByTagName("TD")[0];
+                        y = rows[i + 1].getElementsByTagName("TD")[0];
+
+                        if (n == 1) {
+                            if (new Date(x.innerHTML) > new Date(y.innerHTML)) {
+
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else {
+                            if (new Date(x.innerHTML) < new Date(y.innerHTML)) {
+
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
             }
         }
 
@@ -3758,6 +4543,15 @@
                 </div>
                 <a href="#" id="PlusD" class="w3-bar-item w3-button w3-padding-large w3-large w3-left" title="Dodaj Vozača"><i class="fa fa-user-plus"></i></a>
                 <a href="#" id="PlusVoznjaD" class="w3-bar-item w3-button w3-padding-large w3-large w3-left" title="Dodaj Vožnju"><i class="fa fa-plus"></i></a>
+
+                <div class="w3-dropdown-hover w3-hide-small w3-large w3-left">
+                    <button class="w3-button w3-padding-large" title="Blokiranje"><i class="fa fa-ban"></i></button>
+                    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+                        <a href="#" id="blokVD" class="w3-bar-item w3-button">Blokiranje Vozača</a>
+                        <a href="#" id="blokKD" class="w3-bar-item w3-button">Blokiranje Mušterije</a>
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="w3-container w3-content" style="max-width:1700px;margin-top:80px">
@@ -3777,7 +4571,7 @@
                 <div class="w3-card w3-left w3-white">
                     <div id="tabelaIzmenaD">
                     </div>
-                    <button class="w3-center" id="izmeniK" type="button">Izmeni</button>
+                    <button class="w3-center" id="izmeniD" type="button">Izmeni</button>
                 </div>
             </div>
             <div id="dodajVozacaDivD">
@@ -4082,6 +4876,10 @@
                     </div>
                 </div>
             </div>
+            <div class="w3-left">
+                <div id="blokDivD">
+                </div>
+            </div>
         </div>
     </div>
     <div class="vozac">
@@ -4120,7 +4918,7 @@
                 <div class="w3-card w3-left w3-white">
                     <div id="tabelaIzmenaV">
                     </div>
-                    <button class="w3-center" id="izmeniK" type="button">Izmeni</button>
+                    <button class="w3-center" id="izmeniV" type="button">Izmeni</button>
                     <br />
                 </div>
             </div>

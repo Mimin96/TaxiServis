@@ -1,2 +1,4 @@
-0;Mimin;mimin123;Miroslav;Tanasic;Muški;2612996772058;0631401955;tanasic@gmail.com;Vozač;0;45.2514401817769;19.8297747301026;0;Pere Dobrinovića 2;; Novi Sad;0;0;Mimin;2000;BG007CD;100;Putnički;False;False
-1;Djolo;djolo123;Djole;Tosic;Muški;2612996772058;0631401956;djole@gmail.com;Vozač;0;45.2548842759136;19.8382719682618;0;Pavla Papa 19;; Novi Sad 21101;0;0;;2002;SI007SI;99;Kombi;False;False
+0;Mimin;mimin123;Miroslav;Tanasic;Muški;2612996772058;0631401955;tanasic@gmail.com;Vozač;0;45.2514401817769;19.8297747301026;0;Pere Dobrinovića 2;; Novi Sad;0;0;Mimin;2000;BG007CD;100;Putnički;False;True
+1;Djolo;djolo123;Djordje;Tosic;Muški;2612996772058;0631401956;djole@gmail.com;Vozač;0;45.2568640937884;19.8369196720153;0;Valentina Vodnika 22;; Novi Sad 21101;0;0;;2002;SI007SI;99;Kombi;True;False
+2;milan;milan123;Milan;Petrovic;Muški;1401997772058;06320144566;milan@gmail.com;Vozač;0;45.2458645683192;19.8398172855377;0;Bulevar oslobođenja 96;; Novi Sad 21000;0;0;milan;2002;LO007BK;5;Kombi;False;False
+3;coa123;coa123;Coa;Jovic;Muški;2406996772058;0631452899;coa@gmail.com;Vozač;0;45.2547634340411;19.8335512803956;0;Kosančić Ivana 1;; Novi Sad 21000;0;0;coa123;2005;SI009SI;9;Putnički;False;False
